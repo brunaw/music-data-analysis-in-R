@@ -1,0 +1,11 @@
+---
+title: "Music Data Analysis in R I"
+author: "Bruna Wundervald"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+---
+
+# Hello

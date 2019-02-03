@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4 How to get the API key | Music Data Analysis in R I</title>
+  <meta name="description" content="4 How to get the API key | Music Data Analysis in R I>
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4 How to get the API key | Music Data Analysis in R I />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 How to get the API key | Music Data Analysis in R I />
+  
+  
+  
+
+<meta name="author" content="Bruna Wundervald">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="applications.html">
+<link rel="next" href="applications-1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Hello</a></li>
+<li class="chapter" data-level="2" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>2</b> TODO</a></li>
+<li class="chapter" data-level="3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>3</b> Applications</a><ul>
+<li class="chapter" data-level="3.1" data-path="applications.html"><a href="applications.html#chords"><i class="fa fa-check"></i><b>3.1</b> Chords</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="applications.html"><a href="applications.html#installation"><i class="fa fa-check"></i><b>3.1.1</b> Installation</a></li>
+<li class="chapter" data-level="3.1.2" data-path="applications.html"><a href="applications.html#functions"><i class="fa fa-check"></i><b>3.1.2</b> Functions</a></li>
+<li class="chapter" data-level="3.1.3" data-path="applications.html"><a href="applications.html#data"><i class="fa fa-check"></i><b>3.1.3</b> Data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="applications.html"><a href="applications.html#use-case"><i class="fa fa-check"></i><b>3.1.4</b> Use case</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="applications.html"><a href="applications.html#lyrics"><i class="fa fa-check"></i><b>3.2</b> Lyrics</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html"><i class="fa fa-check"></i><b>4</b> How to get the API key</a><ul>
+<li class="chapter" data-level="4.1" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html#acessing-the-spotify-api"><i class="fa fa-check"></i><b>4.1</b> Acessing the Spotify API</a></li>
+<li class="chapter" data-level="4.2" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html#tablatures"><i class="fa fa-check"></i><b>4.2</b> Tablatures</a></li>
+<li class="chapter" data-level="4.3" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html#audio"><i class="fa fa-check"></i><b>4.3</b> Audio</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications-1.html"><a href="applications-1.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications-1.html"><a href="applications-1.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Music Data Analysis in R I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-to-get-the-api-key" class="section level1">
+<h1><span class="header-section-number">4</span> How to get the API key</h1>
+<p>We are going to start by explaining how to get the <em>API key</em> .
+You will need to be aware that <a href="https://www.vagalume.com.br/">Vagalume</a>
+is a <strong>Brazilian</strong> website, so everything there will be in Portuguese.
+The following explains how to go through that barrier and successfully get the key.</p>
+<ol style="list-style-type: decimal">
+<li>Access <a href="https://auth.vagalume.com.br/" class="uri">https://auth.vagalume.com.br/</a> and log in (it can be done
+with some social media account in the “Entre com” buttons):</li>
+</ol>
+<p><img src="img/login.png" width="925" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Go to <a href="https://auth.vagalume.com.br/settings/api/" class="uri">https://auth.vagalume.com.br/settings/api/</a> and create an application:</li>
+</ol>
+<ul>
+<li>Click on the “Adicionar Credencial” button and fill the name
+(“Nome da aplicação”) and its purpose (“Descrição da aplicação”). Click
+“Cadastrar” to create it.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Now you must have an API key available for use. In
+<a href="https://auth.vagalume.com.br/settings/api/" class="uri">https://auth.vagalume.com.br/settings/api/</a>, copy your
+key from the “Credencial” section:</li>
+</ol>
+<p><img src="img/cred.png" width="1089" /></p>
+<p>And there you have it. Now it is just a matter of having your key
+stored in an object, ready to be used when needed:</p>
+<pre class="sourceCode r"><code class="sourceCode r">key &lt;-<span class="st"> &quot;your-api-key&quot;</span></code></pre>
+<p>The <code>vagalumeR</code> package has 6 main functions:</p>
+<ul>
+<li><code>artistInfo()</code>: brings us information about an specific artist.</li>
+<li><code>discography()</code>: gives us the discography of an artist.</li>
+<li><code>relatedInfo()</code>: brings us information about related artists
+of one specific musician/band.</li>
+<li><code>genre()</code>: finds the music genre (or genres) of the artist.</li>
+<li><code>albums()</code>: finds the albums of the artist.</li>
+<li><code>songNames()</code>: gives us the names for the songs of an artist.</li>
+<li><code>topLyrics()</code>: tells us about the top acessed lyrics of an artist.</li>
+<li><code>lyrics()</code>: brings the full lyrics and translation (when available)
+of the songs!</li>
+</ul>
+<p>For today’s post, we will be working with the band called
+<a href="https://belleandsebastian.com/">Belle and Sebastian</a>. I personally like
+the band style and their lyrics, which can be taken as very poetic
+sometimes. The installation of the package is done with:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install it either from </span>
+<span class="co"># CRAN</span>
+<span class="kw">install.packages</span>(<span class="st">&#39;vagalumeR&#39;</span>)
+<span class="co"># or github</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;r-music/vagalumeR&quot;</span>)
+<span class="co"># checking the help of the package</span>
+<span class="kw">help</span>(<span class="dt">package =</span> <span class="st">&quot;vagalumeR&quot;</span>)</code></pre>
+<p>The lyrics obtention process needs two things: an artist, for who
+we will first get the name of the songs, and the song ids. The code
+is as follows:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) <span class="co"># always</span>
+<span class="kw">library</span>(vagalumeR) <span class="co"># loading the package!</span>
+
+<span class="co"># defining the artist </span>
+artist &lt;-<span class="st"> &quot;the-white-stripes&quot;</span>
+
+<span class="co"># Firt, obtaining the song names </span>
+song &lt;-<span class="st"> </span><span class="kw">songNames</span>(artist)
+
+<span class="co"># Mapping the lyrics function over the ids found</span>
+lyrics_data &lt;-<span class="st"> </span>song <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(song.id) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>purrr<span class="op">::</span><span class="kw">map</span>(lyrics, 
+             <span class="dt">artist =</span> artist,
+             <span class="dt">type =</span> <span class="st">&quot;id&quot;</span>, 
+             <span class="dt">key =</span> key) <span class="op">%&gt;%</span>
+<span class="st">  </span>purrr<span class="op">::</span><span class="kw">map_df</span>(data.frame) </code></pre>
+<pre><code>## [1] &quot;Lyrics not found&quot;
+## [1] &quot;Lyrics not found&quot;
+## [1] &quot;Lyrics not found&quot;
+## [1] &quot;Lyrics not found&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(lyrics_data) </code></pre>
+<pre><code>## Observations: 111
+## Variables: 8
+## $ id          &lt;fct&gt; 3ade68b7g2e135ea3, 3ade68b7ged032ea3, 3ade68b7gfd032…
+## $ name        &lt;chr&gt; &quot;the-white-stripes&quot;, &quot;the-white-stripes&quot;, &quot;the-white…
+## $ lang        &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2…
+## $ text        &lt;chr&gt; &quot;I am as ugly as I seem Worse than all your dreams C…
+## $ song.id     &lt;fct&gt; 3ade68b7g2e135ea3, 3ade68b7ged032ea3, 3ade68b7gfd032…
+## $ song        &lt;chr&gt; &quot;the-white-stripes&quot;, &quot;the-white-stripes&quot;, &quot;the-white…
+## $ language    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, NA, 1, 1, 1, NA, NA, NA, …
+## $ translation &lt;chr&gt; &quot;Eu sou tão feio como pareço  Pior que todos os seus…</code></pre>
+<p>Now we have our artists id and name, the songs names and ids,
+their language (2 for English and 1 for Portuguese!), the original
+lyrics and the translation, when available. But that it’s not the
+only functionality of the <code>vagalumeR</code> package. The function below
+gives us the information about the artist:</p>
+<pre class="sourceCode r"><code class="sourceCode r">art_info &lt;-<span class="st"> </span>vagalumeR<span class="op">::</span><span class="kw">artistInfo</span>(artist) </code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">art_info <span class="op">%&gt;%</span><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">id</th>
+<th align="left">name</th>
+<th align="left">views</th>
+<th align="left">pos</th>
+<th align="right">period</th>
+<th align="left">uniques</th>
+<th align="left">points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">873</td>
+<td align="left">1287</td>
+<td align="right">201811</td>
+<td align="left">503</td>
+<td align="left">1.2</td>
+</tr>
+</tbody>
+</table>
+<p>Those information represent the position of the artist (column <code>pos</code>)
+in a certain period (column <code>period</code>). There is also information about
+how many views (column <code>unique</code>) the artist had how many
+unique users (column <code>unique</code>) accessed the artist, as well
+as their <a href="https://www.vagalume.com.br/top100/artistas/geral/">Vagalume Ranking</a>
+pontuation, that can either increase or decrease in the period. The
+artist’s genre, on the other hand, is extracted with an specific
+function, once there can be a multiple categorization instead of just one
+music genre:</p>
+<pre class="sourceCode r"><code class="sourceCode r">genre &lt;-<span class="st"> </span>vagalumeR<span class="op">::</span><span class="kw">genre</span>(artist) </code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">genre <span class="op">%&gt;%</span><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">genre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rock</td>
+</tr>
+<tr class="even">
+<td align="left">Rock Alternativo</td>
+</tr>
+<tr class="odd">
+<td align="left">Indie</td>
+</tr>
+<tr class="even">
+<td align="left">Punk Rock</td>
+</tr>
+<tr class="odd">
+<td align="left">Blues</td>
+</tr>
+</tbody>
+</table>
+<p>And names of the top lyrics for the artists can be found with:</p>
+<pre class="sourceCode r"><code class="sourceCode r">top_lyr &lt;-<span class="st"> </span>vagalumeR<span class="op">::</span><span class="kw">topLyrics</span>(artist)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">top_lyr <span class="op">%&gt;%</span><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">id</th>
+<th align="left">name</th>
+<th align="left">id.top</th>
+<th align="left">song</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g7877fda3</td>
+<td align="left">Seven Nation Army</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6ga877fda3</td>
+<td align="left">I Just Don’t Know What To Do With Myself</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7g71132ea3</td>
+<td align="left">We’re Going To Be Friends</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g0437fda3</td>
+<td align="left">Fell In Love With A Girl</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7g5f032ea3</td>
+<td align="left">Jolene</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7g73d05ea3</td>
+<td align="left">Blue Orchid</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g9ddafda3</td>
+<td align="left">The Hardest Button To Button</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gd0132ea3</td>
+<td align="left">St. James Infirmary Blues</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gf55c2ea3</td>
+<td align="left">Well It’s True That We Love One Another</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gd1132ea3</td>
+<td align="left">You’ve Got Her In Your Pocket</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gfe032ea3</td>
+<td align="left">I’m Bound To Pack It Up</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7g21132ea3</td>
+<td align="left">The Union Forever</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b8gbf7f0fa3</td>
+<td align="left">Effect And Cause</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b8gc3340fa3</td>
+<td align="left">Love Is The Truth</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b8g1f720fa3</td>
+<td align="left">Icky Thump</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b8g33bf0fa3</td>
+<td align="left">300 M.P.H. Torrential Outpour Blues</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gdd032ea3</td>
+<td align="left">Apple Blossom</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gf0132ea3</td>
+<td align="left">Suzy Lee</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6ga95bfda3</td>
+<td align="left">Girl, You Have No Faith In Medicine</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gbf032ea3</td>
+<td align="left">Little Acorns</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g8877fda3</td>
+<td align="left">Black Math</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g30f7fda3</td>
+<td align="left">Dead Leaves And The Dirty Ground</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7gaf032ea3</td>
+<td align="left">Let’s Shake Hands</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7g20132ea3</td>
+<td align="left">Now Mary</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b7g30132ea3</td>
+<td align="left">Offend In Every Way</td>
+</tr>
+</tbody>
+</table>
+<p>This table represents their mos popular songs in the Vagalume
+website. Information about the albums of an artist is also available
+in the API, and we access it with:</p>
+<pre class="sourceCode r"><code class="sourceCode r">albums &lt;-<span class="st"> </span>vagalumeR<span class="op">::</span><span class="kw">albums</span>(artist)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">albums <span class="op">%&gt;%</span><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">id</th>
+<th align="left">title</th>
+<th align="left">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">3ade68b6gc658fda3</td>
+<td align="left">Under Great White Northern Lights</td>
+<td align="left">2010</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b6gfde7fda3</td>
+<td align="left">Icky Thump</td>
+<td align="left">2007</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b6g1923fda3</td>
+<td align="left">Walking with a Ghost</td>
+<td align="left">2005</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b6g0923fda3</td>
+<td align="left">Get Behind Me Satan</td>
+<td align="left">2005</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b6g3f55fda3</td>
+<td align="left">Elephant</td>
+<td align="left">2003</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b6ga1e6fda3</td>
+<td align="left">White Blood Cells</td>
+<td align="left">2001</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b6gf823fda3</td>
+<td align="left">De Stijl</td>
+<td align="left">2000</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b6g91e6fda3</td>
+<td align="left">The White Stripes</td>
+<td align="left">1999</td>
+</tr>
+</tbody>
+</table>
+<p>We can also check the information about related/similar
+bands and artists, with the <code>relatedInfo</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r">rel_info &lt;-<span class="st"> </span>vagalumeR<span class="op">::</span><span class="kw">relatedInfo</span>(artist)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">rel_info <span class="op">%&gt;%</span><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">id</th>
+<th align="left">name</th>
+<th align="left">rel.id</th>
+<th align="left">related</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b5g8e77eda3</td>
+<td align="left">Queens Of The Stone Age</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g6bf9eda3</td>
+<td align="left">Audioslave</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g35f9eda3</td>
+<td align="left">The Strokes</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g28c9eda3</td>
+<td align="left">Rolling Stones</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6gc8e0fda3</td>
+<td align="left">Arctic Monkeys</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b3g7c86eda3</td>
+<td align="left">Pink Floyd</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b5g7027eda3</td>
+<td align="left">Incubus</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b3g0c86eda3</td>
+<td align="left">Led Zeppelin</td>
+</tr>
+<tr class="odd">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b6g9b1ceda3</td>
+<td align="left">The Killers</td>
+</tr>
+<tr class="even">
+<td align="left">3ade68b5g1808eda3</td>
+<td align="left">White Stripes</td>
+<td align="left">3ade68b5g4467eda3</td>
+<td align="left">Nirvana</td>
+</tr>
+</tbody>
+</table>
+<p>That last table is the type of data that will later allow us to create
+networks between the artists, for example. In summary, the
+<code>vagalumeR</code> package can be used to extract a lot of important features
+about the musicians, and we will explore the data in the next section.</p>
+<div id="acessing-the-spotify-api" class="section level2">
+<h2><span class="header-section-number">4.1</span> Acessing the Spotify API</h2>
+</div>
+<div id="tablatures" class="section level2">
+<h2><span class="header-section-number">4.2</span> Tablatures</h2>
+</div>
+<div id="audio" class="section level2">
+<h2><span class="header-section-number">4.3</span> Audio</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="applications.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

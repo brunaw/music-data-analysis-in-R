@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3 Applications | Music Data Analysis in R I</title>
+  <meta name="description" content="3 Applications | Music Data Analysis in R I>
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3 Applications | Music Data Analysis in R I />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Applications | Music Data Analysis in R I />
+  
+  
+  
+
+<meta name="author" content="Bruna Wundervald">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="todo.html">
+<link rel="next" href="how-to-get-the-api-key.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Hello</a></li>
+<li class="chapter" data-level="2" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>2</b> TODO</a></li>
+<li class="chapter" data-level="3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>3</b> Applications</a><ul>
+<li class="chapter" data-level="3.1" data-path="applications.html"><a href="applications.html#chords"><i class="fa fa-check"></i><b>3.1</b> Chords</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="applications.html"><a href="applications.html#installation"><i class="fa fa-check"></i><b>3.1.1</b> Installation</a></li>
+<li class="chapter" data-level="3.1.2" data-path="applications.html"><a href="applications.html#functions"><i class="fa fa-check"></i><b>3.1.2</b> Functions</a></li>
+<li class="chapter" data-level="3.1.3" data-path="applications.html"><a href="applications.html#data"><i class="fa fa-check"></i><b>3.1.3</b> Data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="applications.html"><a href="applications.html#use-case"><i class="fa fa-check"></i><b>3.1.4</b> Use case</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="applications.html"><a href="applications.html#lyrics"><i class="fa fa-check"></i><b>3.2</b> Lyrics</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html"><i class="fa fa-check"></i><b>4</b> How to get the API key</a><ul>
+<li class="chapter" data-level="4.1" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html#acessing-the-spotify-api"><i class="fa fa-check"></i><b>4.1</b> Acessing the Spotify API</a></li>
+<li class="chapter" data-level="4.2" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html#tablatures"><i class="fa fa-check"></i><b>4.2</b> Tablatures</a></li>
+<li class="chapter" data-level="4.3" data-path="how-to-get-the-api-key.html"><a href="how-to-get-the-api-key.html#audio"><i class="fa fa-check"></i><b>4.3</b> Audio</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications-1.html"><a href="applications-1.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications-1.html"><a href="applications-1.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Music Data Analysis in R I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="applications" class="section level1">
+<h1><span class="header-section-number">3</span> Applications</h1>
+<p>Some <em>significant</em> applications are demonstrated
+in this chapter.</p>
+<div id="chords" class="section level2">
+<h2><span class="header-section-number">3.1</span> Chords</h2>
+<p><code>chorrrds</code> is a package to retrieve and analyse music data. It scrapes
+the <a href="https://www.cifraclub.com.br/"><em>Cifraclub</em></a> website to download and
+organize music chords. Th package was created during my undergrad’s
+thesis. In that work, I did an end-to-end analysis, exploring feature
+engineering techniques to describe and predict musical genres from music chord
+representation. In this section we will how to use the <code>chorrrds</code>
+functions and show some usage examples.</p>
+<div id="installation" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Installation</h3>
+<p>You can install <code>chorrrds</code> from your favourite CRAN mirror, simply running:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;chorrrds&quot;</span>)</code></pre>
+<p>You can also install the latest versios of <code>chorrrds</code> from the
+R-Music GitHub organization with:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;r-music/chorrrds&quot;</span>)</code></pre>
+</div>
+<div id="functions" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Functions</h3>
+<p>The main function of the package is called <code>get_chords()</code>. It
+extracts music chords from an specific artist. There is two
+steps to obtain the data:</p>
+<ol style="list-style-type: decimal">
+<li>Extraction of song urls for each music of an artist with <code>get_songs</code>.</li>
+<li>Extraction of music chords using the urls with <code>get_chords</code>.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) 
+
+songs &lt;-<span class="st"> &quot;janis-joplin&quot;</span> <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>chorrrds<span class="op">::</span><span class="kw">get_songs</span>() </code></pre>
+<p>At this point, the <code>chorrrd</code> object contains the url to be accessed via
+webscraping and the name of each song. Next, we actually extract their
+music chords with the <code>get_chords</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r">chords &lt;-<span class="st"> </span>songs <span class="op">%&gt;%</span><span class="st">   </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">pull</span>(url) <span class="op">%&gt;%</span><span class="st">                     </span>
+<span class="st">  </span>purrr<span class="op">::</span><span class="kw">map</span>(chorrrds<span class="op">::</span>get_chords) <span class="op">%&gt;%</span><span class="st">     </span><span class="co"># Mapping the function over the </span>
+<span class="st">                                           </span><span class="co"># selected urls</span>
+<span class="st">  </span>purrr<span class="op">::</span><span class="kw">map_dfr</span>(dplyr<span class="op">::</span>mutate_if, is.factor, as.character)   <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>chorrrds<span class="op">::</span><span class="kw">clean</span>(<span class="dt">message =</span> <span class="ot">FALSE</span>)         <span class="co"># Cleans the dataset, in case</span>
+                                           <span class="co"># strange elements, as music lyrics, </span>
+                                           <span class="co"># are present when they shouldn&#39;t</span></code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">chord</th>
+<th align="left">key</th>
+<th align="left">music</th>
+<th align="right">long_str</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Dadd9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Dsus4/9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">D5</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Dadd9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Dsus4/9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">D5</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">G</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">G</td>
+<td align="left">A#</td>
+<td align="left">janis joplin a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+</tbody>
+</table>
+<p>The table above shows us how are the results of the <code>get_chords</code>
+function. As we can see, the data is in a long format: the chords
+appear in the sequence they are in each music, being repeated
+sometimes. The <code>music</code> column contains the name of the artist
+and the name of the song. This can be changed if preferred,
+with:</p>
+<pre class="sourceCode r"><code class="sourceCode r">chords &lt;-<span class="st"> </span>chords <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">separate</span>(music, <span class="kw">c</span>(<span class="st">&quot;artist&quot;</span>, <span class="st">&quot;music&quot;</span>), 
+                  <span class="dt">sep =</span> <span class="st">&quot;(?&lt;=joplin) &quot;</span>, <span class="dt">extra =</span> <span class="st">&quot;merge&quot;</span>)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">chord</th>
+<th align="left">key</th>
+<th align="left">artist</th>
+<th align="left">music</th>
+<th align="right">long_str</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Dadd9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Dsus4/9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">D5</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Dadd9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">Dsus4/9</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">D5</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">G</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">G</td>
+<td align="left">A#</td>
+<td align="left">janis joplin</td>
+<td align="left">a woman left lonely</td>
+<td align="right">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Data</h3>
+<p>There are many datasets that already come with the package. They were
+used in the undergrad thesis, so it was a choice just to keep it
+in the package. The data is composed of several Brazilian artists
+music chords. You can check the available datasets with the
+code above, which will not be run here because the results
+are long:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(chorrrds)
+<span class="kw">ls</span>(<span class="st">&quot;package:chorrrds&quot;</span>)                 </code></pre>
+</div>
+<div id="use-case" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Use case</h3>
+<p>Returning to the data we collected before, let us explore it a little.
+The first thing we can look at is the most common chords in
+each music. Which are the common chords in music made
+by Janis Joplin? Are the proportions of these chords
+similar between the songs?</p>
+<pre class="sourceCode r"><code class="sourceCode r">percentages &lt;-<span class="st"> </span>chords <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(music) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">count</span>(chord) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">top_n</span>(n, <span class="dt">n =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">prop =</span> scales<span class="op">::</span><span class="kw">percent</span>(n<span class="op">/</span><span class="kw">sum</span>(n))) </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">music</th>
+<th align="left">chord</th>
+<th align="right">n</th>
+<th align="left">prop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">a woman left lonely</td>
+<td align="left">Bb</td>
+<td align="right">11</td>
+<td align="left">32.35%</td>
+</tr>
+<tr class="even">
+<td align="left">a woman left lonely</td>
+<td align="left">D</td>
+<td align="right">11</td>
+<td align="left">32.35%</td>
+</tr>
+<tr class="odd">
+<td align="left">a woman left lonely</td>
+<td align="left">F</td>
+<td align="right">12</td>
+<td align="left">35.29%</td>
+</tr>
+<tr class="even">
+<td align="left">ball and chain</td>
+<td align="left">Cm</td>
+<td align="right">11</td>
+<td align="left">40.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">ball and chain</td>
+<td align="left">Dm</td>
+<td align="right">5</td>
+<td align="left">18.5%</td>
+</tr>
+<tr class="even">
+<td align="left">ball and chain</td>
+<td align="left">Gm</td>
+<td align="right">11</td>
+<td align="left">40.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">blowin in the wind</td>
+<td align="left">A</td>
+<td align="right">19</td>
+<td align="left">26.4%</td>
+</tr>
+<tr class="even">
+<td align="left">blowin in the wind</td>
+<td align="left">D</td>
+<td align="right">28</td>
+<td align="left">38.9%</td>
+</tr>
+<tr class="odd">
+<td align="left">blowin in the wind</td>
+<td align="left">G</td>
+<td align="right">25</td>
+<td align="left">34.7%</td>
+</tr>
+<tr class="even">
+<td align="left">buried alive in blues</td>
+<td align="left">C</td>
+<td align="right">3</td>
+<td align="left">37.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">buried alive in blues</td>
+<td align="left">D</td>
+<td align="right">1</td>
+<td align="left">12.5%</td>
+</tr>
+<tr class="even">
+<td align="left">buried alive in blues</td>
+<td align="left">G</td>
+<td align="right">4</td>
+<td align="left">50.0%</td>
+</tr>
+<tr class="odd">
+<td align="left">bye bye baby</td>
+<td align="left">A</td>
+<td align="right">4</td>
+<td align="left">10.3%</td>
+</tr>
+<tr class="even">
+<td align="left">bye bye baby</td>
+<td align="left">C</td>
+<td align="right">11</td>
+<td align="left">28.2%</td>
+</tr>
+<tr class="odd">
+<td align="left">bye bye baby</td>
+<td align="left">D</td>
+<td align="right">4</td>
+<td align="left">10.3%</td>
+</tr>
+<tr class="even">
+<td align="left">bye bye baby</td>
+<td align="left">E</td>
+<td align="right">4</td>
+<td align="left">10.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">bye bye baby</td>
+<td align="left">G</td>
+<td align="right">16</td>
+<td align="left">41.0%</td>
+</tr>
+<tr class="even">
+<td align="left">call on me</td>
+<td align="left">A</td>
+<td align="right">9</td>
+<td align="left">31.03%</td>
+</tr>
+<tr class="odd">
+<td align="left">call on me</td>
+<td align="left">B</td>
+<td align="right">11</td>
+<td align="left">37.93%</td>
+</tr>
+<tr class="even">
+<td align="left">call on me</td>
+<td align="left">E</td>
+<td align="right">9</td>
+<td align="left">31.03%</td>
+</tr>
+<tr class="odd">
+<td align="left">combination of the two</td>
+<td align="left">A</td>
+<td align="right">8</td>
+<td align="left">26.7%</td>
+</tr>
+<tr class="even">
+<td align="left">combination of the two</td>
+<td align="left">Abm</td>
+<td align="right">4</td>
+<td align="left">13.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">combination of the two</td>
+<td align="left">B</td>
+<td align="right">4</td>
+<td align="left">13.3%</td>
+</tr>
+<tr class="even">
+<td align="left">combination of the two</td>
+<td align="left">E</td>
+<td align="right">10</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">combination of the two</td>
+<td align="left">F#m</td>
+<td align="right">4</td>
+<td align="left">13.3%</td>
+</tr>
+<tr class="even">
+<td align="left">cry baby</td>
+<td align="left">C</td>
+<td align="right">30</td>
+<td align="left">40.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">cry baby</td>
+<td align="left">F</td>
+<td align="right">25</td>
+<td align="left">33.8%</td>
+</tr>
+<tr class="even">
+<td align="left">cry baby</td>
+<td align="left">G</td>
+<td align="right">19</td>
+<td align="left">25.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">dear landlord</td>
+<td align="left">A</td>
+<td align="right">2</td>
+<td align="left">10.5%</td>
+</tr>
+<tr class="even">
+<td align="left">dear landlord</td>
+<td align="left">Am</td>
+<td align="right">2</td>
+<td align="left">10.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">dear landlord</td>
+<td align="left">Bb</td>
+<td align="right">2</td>
+<td align="left">10.5%</td>
+</tr>
+<tr class="even">
+<td align="left">dear landlord</td>
+<td align="left">C</td>
+<td align="right">2</td>
+<td align="left">10.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">dear landlord</td>
+<td align="left">Em</td>
+<td align="right">2</td>
+<td align="left">10.5%</td>
+</tr>
+<tr class="even">
+<td align="left">dear landlord</td>
+<td align="left">F</td>
+<td align="right">6</td>
+<td align="left">31.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">dear landlord</td>
+<td align="left">G</td>
+<td align="right">3</td>
+<td align="left">15.8%</td>
+</tr>
+<tr class="even">
+<td align="left">get it while you can</td>
+<td align="left">Bb</td>
+<td align="right">15</td>
+<td align="left">22.4%</td>
+</tr>
+<tr class="odd">
+<td align="left">get it while you can</td>
+<td align="left">C</td>
+<td align="right">31</td>
+<td align="left">46.3%</td>
+</tr>
+<tr class="even">
+<td align="left">get it while you can</td>
+<td align="left">F</td>
+<td align="right">21</td>
+<td align="left">31.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">half moon</td>
+<td align="left">C</td>
+<td align="right">6</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="even">
+<td align="left">half moon</td>
+<td align="left">C7</td>
+<td align="right">2</td>
+<td align="left">11.1%</td>
+</tr>
+<tr class="odd">
+<td align="left">half moon</td>
+<td align="left">F</td>
+<td align="right">2</td>
+<td align="left">11.1%</td>
+</tr>
+<tr class="even">
+<td align="left">half moon</td>
+<td align="left">F7+</td>
+<td align="right">2</td>
+<td align="left">11.1%</td>
+</tr>
+<tr class="odd">
+<td align="left">half moon</td>
+<td align="left">G</td>
+<td align="right">6</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="even">
+<td align="left">kozmic blues</td>
+<td align="left">Am</td>
+<td align="right">6</td>
+<td align="left">20.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">kozmic blues</td>
+<td align="left">D</td>
+<td align="right">7</td>
+<td align="left">24.1%</td>
+</tr>
+<tr class="even">
+<td align="left">kozmic blues</td>
+<td align="left">F</td>
+<td align="right">10</td>
+<td align="left">34.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">kozmic blues</td>
+<td align="left">G</td>
+<td align="right">6</td>
+<td align="left">20.7%</td>
+</tr>
+<tr class="even">
+<td align="left">little girl blue</td>
+<td align="left">Bb</td>
+<td align="right">12</td>
+<td align="left">34.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">little girl blue</td>
+<td align="left">C/E</td>
+<td align="right">6</td>
+<td align="left">17.1%</td>
+</tr>
+<tr class="even">
+<td align="left">little girl blue</td>
+<td align="left">F</td>
+<td align="right">17</td>
+<td align="left">48.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">maybe</td>
+<td align="left">Am7</td>
+<td align="right">9</td>
+<td align="left">25.7%</td>
+</tr>
+<tr class="even">
+<td align="left">maybe</td>
+<td align="left">C</td>
+<td align="right">12</td>
+<td align="left">34.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">maybe</td>
+<td align="left">G</td>
+<td align="right">14</td>
+<td align="left">40.0%</td>
+</tr>
+<tr class="even">
+<td align="left">me and bobby mcgee</td>
+<td align="left">A</td>
+<td align="right">73</td>
+<td align="left">43.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">me and bobby mcgee</td>
+<td align="left">E7</td>
+<td align="right">68</td>
+<td align="left">40.7%</td>
+</tr>
+<tr class="even">
+<td align="left">me and bobby mcgee</td>
+<td align="left">G</td>
+<td align="right">26</td>
+<td align="left">15.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">mercedes benz</td>
+<td align="left">A</td>
+<td align="right">5</td>
+<td align="left">14.3%</td>
+</tr>
+<tr class="even">
+<td align="left">mercedes benz</td>
+<td align="left">Bm7</td>
+<td align="right">5</td>
+<td align="left">14.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">mercedes benz</td>
+<td align="left">D</td>
+<td align="right">15</td>
+<td align="left">42.9%</td>
+</tr>
+<tr class="even">
+<td align="left">mercedes benz</td>
+<td align="left">G</td>
+<td align="right">10</td>
+<td align="left">28.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">miseryn</td>
+<td align="left">Abm</td>
+<td align="right">4</td>
+<td align="left">26.7%</td>
+</tr>
+<tr class="even">
+<td align="left">miseryn</td>
+<td align="left">B</td>
+<td align="right">5</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">miseryn</td>
+<td align="left">C#m</td>
+<td align="right">6</td>
+<td align="left">40.0%</td>
+</tr>
+<tr class="even">
+<td align="left">move over</td>
+<td align="left">A</td>
+<td align="right">2</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">move over</td>
+<td align="left">E</td>
+<td align="right">2</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="even">
+<td align="left">move over</td>
+<td align="left">G</td>
+<td align="right">2</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">one good man</td>
+<td align="left">A</td>
+<td align="right">8</td>
+<td align="left">33.3%</td>
+</tr>
+<tr class="even">
+<td align="left">one good man</td>
+<td align="left">B</td>
+<td align="right">4</td>
+<td align="left">16.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">one good man</td>
+<td align="left">E</td>
+<td align="right">12</td>
+<td align="left">50.0%</td>
+</tr>
+<tr class="even">
+<td align="left">piece of my heart</td>
+<td align="left">A</td>
+<td align="right">54</td>
+<td align="left">37.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">piece of my heart</td>
+<td align="left">B</td>
+<td align="right">67</td>
+<td align="left">46.5%</td>
+</tr>
+<tr class="even">
+<td align="left">piece of my heart</td>
+<td align="left">E</td>
+<td align="right">23</td>
+<td align="left">16.0%</td>
+</tr>
+<tr class="odd">
+<td align="left">somebody to love</td>
+<td align="left">B</td>
+<td align="right">7</td>
+<td align="left">30.4%</td>
+</tr>
+<tr class="even">
+<td align="left">somebody to love</td>
+<td align="left">E</td>
+<td align="right">4</td>
+<td align="left">17.4%</td>
+</tr>
+<tr class="odd">
+<td align="left">somebody to love</td>
+<td align="left">F#m</td>
+<td align="right">12</td>
+<td align="left">52.2%</td>
+</tr>
+<tr class="even">
+<td align="left">st james infirmary</td>
+<td align="left">Am</td>
+<td align="right">4</td>
+<td align="left">22.2%</td>
+</tr>
+<tr class="odd">
+<td align="left">st james infirmary</td>
+<td align="left">B7</td>
+<td align="right">5</td>
+<td align="left">27.8%</td>
+</tr>
+<tr class="even">
+<td align="left">st james infirmary</td>
+<td align="left">Em</td>
+<td align="right">9</td>
+<td align="left">50.0%</td>
+</tr>
+<tr class="odd">
+<td align="left">summertime</td>
+<td align="left">Cm6</td>
+<td align="right">35</td>
+<td align="left">37.2%</td>
+</tr>
+<tr class="even">
+<td align="left">summertime</td>
+<td align="left">D7</td>
+<td align="right">12</td>
+<td align="left">12.8%</td>
+</tr>
+<tr class="odd">
+<td align="left">summertime</td>
+<td align="left">Gm</td>
+<td align="right">47</td>
+<td align="left">50.0%</td>
+</tr>
+<tr class="even">
+<td align="left">the rose</td>
+<td align="left">C</td>
+<td align="right">7</td>
+<td align="left">41.2%</td>
+</tr>
+<tr class="odd">
+<td align="left">the rose</td>
+<td align="left">F</td>
+<td align="right">4</td>
+<td align="left">23.5%</td>
+</tr>
+<tr class="even">
+<td align="left">the rose</td>
+<td align="left">Fm</td>
+<td align="right">3</td>
+<td align="left">17.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">the rose</td>
+<td align="left">G</td>
+<td align="right">3</td>
+<td align="left">17.6%</td>
+</tr>
+<tr class="even">
+<td align="left">trouble in mind</td>
+<td align="left">A7</td>
+<td align="right">1</td>
+<td align="left">14.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">trouble in mind</td>
+<td align="left">D</td>
+<td align="right">1</td>
+<td align="left">14.3%</td>
+</tr>
+<tr class="even">
+<td align="left">trouble in mind</td>
+<td align="left">D7</td>
+<td align="right">3</td>
+<td align="left">42.9%</td>
+</tr>
+<tr class="odd">
+<td align="left">trouble in mind</td>
+<td align="left">G7</td>
+<td align="right">2</td>
+<td align="left">28.6%</td>
+</tr>
+<tr class="even">
+<td align="left">try just little bit harder</td>
+<td align="left">A</td>
+<td align="right">21</td>
+<td align="left">51.2%</td>
+</tr>
+<tr class="odd">
+<td align="left">try just little bit harder</td>
+<td align="left">E7</td>
+<td align="right">14</td>
+<td align="left">34.1%</td>
+</tr>
+<tr class="even">
+<td align="left">try just little bit harder</td>
+<td align="left">G</td>
+<td align="right">6</td>
+<td align="left">14.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">what good can drinkin do</td>
+<td align="left">B</td>
+<td align="right">19</td>
+<td align="left">65.5%</td>
+</tr>
+<tr class="even">
+<td align="left">what good can drinkin do</td>
+<td align="left">E</td>
+<td align="right">4</td>
+<td align="left">13.8%</td>
+</tr>
+<tr class="odd">
+<td align="left">what good can drinkin do</td>
+<td align="left">F#</td>
+<td align="right">6</td>
+<td align="left">20.7%</td>
+</tr>
+</tbody>
+</table>
+<p>With the dataset analyzed here, we can already
+obtain some interesting information. For some songs,
+as the first and second pieces, the 3 most common chords
+appeared in a close proportion. For others,
+this happens in a different way. Both the proportions and
+the absolute quantities of the chords vary more.
+That shows us that the structure of her songs
+don’t follow a closed pattern, which can be a sign of how
+creative the artist was.</p>
+<p>We can also look at something called “chord bigrams”. This
+is pretty much the task of creating pairs of chords that
+happened in sequence, by music, and analyze their frequencies.</p>
+<pre class="sourceCode r"><code class="sourceCode r">chord_bigram &lt;-<span class="st"> </span>chords <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(music) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>tidytext<span class="op">::</span><span class="kw">unnest_tokens</span>(bigram, chord, <span class="dt">to_lower =</span> <span class="ot">FALSE</span>,
+                          <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">count</span>(bigram) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">top_n</span>(n, <span class="dt">n =</span> <span class="dv">2</span>) </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">music</th>
+<th align="left">bigram</th>
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">a woman left lonely</td>
+<td align="left">Bb F</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">a woman left lonely</td>
+<td align="left">C G</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">a woman left lonely</td>
+<td align="left">G C</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">ball and chain</td>
+<td align="left">Cm Gm</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">ball and chain</td>
+<td align="left">Gm Cm</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">blowin in the wind</td>
+<td align="left">A D</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">blowin in the wind</td>
+<td align="left">D G</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="left">blowin in the wind</td>
+<td align="left">G A</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">buried alive in blues</td>
+<td align="left">C G</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">buried alive in blues</td>
+<td align="left">G C</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">bye bye baby</td>
+<td align="left">C G</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">bye bye baby</td>
+<td align="left">G C</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">call on me</td>
+<td align="left">A E</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">call on me</td>
+<td align="left">B A</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">call on me</td>
+<td align="left">C m</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">call on me</td>
+<td align="left">m B</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">combination of the two</td>
+<td align="left">B A</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">combination of the two</td>
+<td align="left">F m</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">cry baby</td>
+<td align="left">C F</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">cry baby</td>
+<td align="left">F C</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">dear landlord</td>
+<td align="left">A F</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">dear landlord</td>
+<td align="left">Am G</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">dear landlord</td>
+<td align="left">F A</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">dear landlord</td>
+<td align="left">G F</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">get it while you can</td>
+<td align="left">Bb F</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">get it while you can</td>
+<td align="left">C Bb</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left">get it while you can</td>
+<td align="left">F C</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">half moon</td>
+<td align="left">C G</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">half moon</td>
+<td align="left">G C</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">kozmic blues</td>
+<td align="left">F F</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">kozmic blues</td>
+<td align="left">G Am</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">little girl blue</td>
+<td align="left">Bb F</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">little girl blue</td>
+<td align="left">C E</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">little girl blue</td>
+<td align="left">F C</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">maybe</td>
+<td align="left">C F</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">maybe</td>
+<td align="left">G C</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">maybe</td>
+<td align="left">G Gmaj7</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">maybe</td>
+<td align="left">Gmaj7 Em</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">maybe</td>
+<td align="left">Gsus G</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">me and bobby mcgee</td>
+<td align="left">A A</td>
+<td align="right">60</td>
+</tr>
+<tr class="odd">
+<td align="left">me and bobby mcgee</td>
+<td align="left">E7 E7</td>
+<td align="right">58</td>
+</tr>
+<tr class="even">
+<td align="left">mercedes benz</td>
+<td align="left">A D</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">mercedes benz</td>
+<td align="left">Bm7 G</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">mercedes benz</td>
+<td align="left">D Bm7</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">mercedes benz</td>
+<td align="left">D G</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">mercedes benz</td>
+<td align="left">G A</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">mercedes benz</td>
+<td align="left">G D</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">miseryn</td>
+<td align="left">C m</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">miseryn</td>
+<td align="left">m Abm</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">move over</td>
+<td align="left">A A</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">move over</td>
+<td align="left">A C</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">move over</td>
+<td align="left">B A</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">move over</td>
+<td align="left">C B</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">move over</td>
+<td align="left">E G</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">move over</td>
+<td align="left">G A</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">move over</td>
+<td align="left">G E</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">one good man</td>
+<td align="left">A E</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">one good man</td>
+<td align="left">B A</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">one good man</td>
+<td align="left">E A</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">one good man</td>
+<td align="left">E B</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">piece of my heart</td>
+<td align="left">A B</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="left">piece of my heart</td>
+<td align="left">B B</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">somebody to love</td>
+<td align="left">F m</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">somebody to love</td>
+<td align="left">m B</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">st james infirmary</td>
+<td align="left">B7 Em</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">st james infirmary</td>
+<td align="left">Em Am</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">st james infirmary</td>
+<td align="left">Em B7</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">summertime</td>
+<td align="left">Cm6 Gm</td>
+<td align="right">32</td>
+</tr>
+<tr class="odd">
+<td align="left">summertime</td>
+<td align="left">Gm Cm6</td>
+<td align="right">33</td>
+</tr>
+<tr class="even">
+<td align="left">the rose</td>
+<td align="left">C G</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">the rose</td>
+<td align="left">F Fm</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">the rose</td>
+<td align="left">Fm C</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">the rose</td>
+<td align="left">G F</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">trouble in mind</td>
+<td align="left">A7 D7</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">trouble in mind</td>
+<td align="left">D D7</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">trouble in mind</td>
+<td align="left">D7 A7</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">trouble in mind</td>
+<td align="left">D7 G7</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">trouble in mind</td>
+<td align="left">G7 D7</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">trouble in mind</td>
+<td align="left">G7 G7</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">try just little bit harder</td>
+<td align="left">A E7</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">try just little bit harder</td>
+<td align="left">E7 A</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">what good can drinkin do</td>
+<td align="left">B B</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">what good can drinkin do</td>
+<td align="left">B F</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">what good can drinkin do</td>
+<td align="left">F B</td>
+<td align="right">6</td>
+</tr>
+</tbody>
+</table>
+<p>There are some bigrams that happen many times in a song, while
+others just a few times, but are still the most frequent ones. In
+the song called “Piece of my heart”, we have the repetition
+of the chord “B”, which is described by the appearance of
+the “B B” bigram. More of what we can find with this format of data
+can be found in the next section of this book.</p>
+</div>
+</div>
+<div id="lyrics" class="section level2">
+<h2><span class="header-section-number">3.2</span> Lyrics</h2>
+<p>The <a href="https://github.com/r-music/vagalumeR"><code>vagalumeR</code></a> package
+provides us with access to the <a href="https://www.vagalume.com.br/">Vagalume</a>
+website API. <a href="https://www.vagalume.com.br/">Vagalume</a> is a music
+portal, and its API has information about discographies,
+music names, related artists, and the most important one, <strong>music lyrics</strong>.</p>
+<p>The first version of the package goes back to 2017 when I was
+taking a Text Mining course. For the course assignments,
+we were asked to deliver some interesting analysis using text and
+the techniques we learned. As by that time I did not found anything
+related to music lyrics datasets, I made the package to solve this problem.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="todo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="how-to-get-the-api-key.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
